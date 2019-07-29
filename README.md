@@ -1,2 +1,2 @@
 # Cardnumber-check
-Small fun project i worked on
+This is a small project i worked on that uses the Luhn algorithm to validate credit/debit card numbers in C++
