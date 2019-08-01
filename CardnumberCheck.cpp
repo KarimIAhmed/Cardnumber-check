@@ -30,6 +30,8 @@ int main()
 
 int sumofoddplace(string cardnumber)
 {
+	// Using a for loop, this functon adds all the numbers in the odd places from RIGHT to LEFT
+	// it then stores them in the totalodd variable
 	int totalodd =0;
 	int size = cardnumber.size();
 	for (int i = size - 1; i >= 0; i-=2)
@@ -42,6 +44,10 @@ int sumofoddplace(string cardnumber)
 }
 int getdigit(int numbers)
 {
+	// This was a fun part to figure out
+	// Function sumofdoubleeven passes the value to here, and if its 
+	// a single digit it is returned. But if it isn't, then I just take the
+	// resulting / 10 and % 10 and add them together
 	if (numbers <= 9 )
 	{
 		return numbers;
@@ -55,6 +61,11 @@ int getdigit(int numbers)
 
 int sumofdoubleeven(string cardnumber)
 {
+	// This was an interesting function to work on
+	// It takes every other digit from the entered card number from RIGHT to LEFT 
+	// then doubles it. If the doubled number is double digits (6*2 giving 12) 
+	// then those 2 digits need to be added to one number (1+2 = 3). I made the
+	// get digit function to test and convert the resulting number if necessary 
 	int totaleven = 0;
 	int size = cardnumber.size();
 	for (int i = size - 2 ; i >=0;i -=2)
@@ -67,7 +78,9 @@ int sumofdoubleeven(string cardnumber)
 
 bool isvalid(string cardnumber)
 {
-	
+	//For the card number to be right, the result number from 
+	// sumofdoubleeven and sumofoddplace needs to be divisible by 10
+	// it also needs to start with "4","5","6" or "37"
 	if ((sumofdoubleeven(cardnumber) + sumofoddplace(cardnumber)) % 10 ==0)
 	{
 		if (cardnumber[0] == '4' || cardnumber[0] == '5' || cardnumber[0] == '6')
